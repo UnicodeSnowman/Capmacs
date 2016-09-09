@@ -42,30 +42,19 @@
 			:width 'normal
 			:height 145))
 
-; Colorscheme
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-;(set-frame-parameter nil 'background-mode 'dark)
-;(set-terminal-parameter nil 'background-mode 'dark)
-;(enable-theme 'solarized)
-;(load-theme 'solarized t)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/jbeans-emacs")
-(load-theme 'jbeans t)
-;(print custom-theme-load-path)
-;(print load-path)
-;(remove-from-list)
-
-;(dolist (x (directory-files "~/.emacs.d/themes/"))
-;  (print x))
-
 ; Elscreen
 (define-key evil-normal-state-map (kbd "C-p") (lambda() (interactive) (elscreen-previous)))
 (define-key evil-normal-state-map (kbd "C-n") (lambda() (interactive) (elscreen-next)))
 (evil-ex-define-cmd "tabnew" 'elscreen-create)
 
 (custom-set-faces
- '(elscreen-tab-background-face((t (:background "#d2d2d2"))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(elscreen-tab-background-face ((t (:background "#d2d2d2"))))
  '(elscreen-tab-control-face ((t (:background "#1c1c1c" :foreground "#9e9e9e" :underline nil))))
- '(elscreen-tab-current-screen-face ((t (:foreground "#eeeeee" :background "#000000", :underline t))))
+ '(elscreen-tab-current-screen-face ((t (:foreground "#eeeeee" :background "#000000" (\, :underline) t))))
  '(elscreen-tab-other-screen-face ((t (:foreground "#111111" :background "#d2d2d2" :underline nil)))))
 
 ;(dolist (n (number-sequence 0 9))
@@ -79,9 +68,26 @@
 ; Dash API Docs
 (setq helm-dash-browser-func 'eww)
 
+; Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+(setq helm-M-x-fuzzy-match t)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
 ; TODO handle package install
 ; * evil
-; * evil-surround
+; * Evil-surround
 ; * helm
 ; * elscreen
 ; * smartparens
+; * rainbow delimiters
+; * color-theme-sanityinc-tomorrow
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
+ '(custom-safe-themes
+   (quote
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default))))
