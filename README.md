@@ -1,0 +1,3 @@
+# Capmacs
+
+I gave up on you emacs, but maybe I'll be back some day...
